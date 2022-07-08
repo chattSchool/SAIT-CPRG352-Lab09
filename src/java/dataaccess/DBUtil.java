@@ -1,30 +1,12 @@
 package dataaccess;
 
-import java.sql.*;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
-/**
- * 
- * @author Dakota Chatt - Code from class notes
- * @version June 25, 2022
- */
 public class DBUtil {
-    public static void closePreparedStatement(Statement ps) {
-        try {
-            if (ps != null) {
-                ps.close();
-            }
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-    }
+    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("ManageUsersPU");
 
-    public static void closeResultSet(ResultSet rs) {
-        try {
-            if (rs != null) {
-                rs.close();
-            }
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
+    public static EntityManagerFactory getEmFactory() {
+        return emf;
     }
 }

@@ -34,7 +34,7 @@
                         <td>${user.lastName}</td>
                         <td>${user.firstName}</td>
                         <td>${user.email}</td>
-                        <td>${user.role.name}</td>
+                        <td>${user.role.roleName}</td>
                         <td>
                             <c:choose>
                                 <c:when test="${user.active == false}">
@@ -84,7 +84,7 @@
                 <br />
                 <select class="formInput"  name="new_roles">
                     <c:forEach var="role" items="${roles}">
-                        <option value="${role.id}">${role.name}</option>
+                        <option value="${role.roleId}">${role.roleName}</option>
                     </c:forEach>
                 </select>
                 <label>Active?</label>
@@ -111,11 +111,11 @@
                 <select class="formInput" name="update_roles">
                     <c:forEach var="role" items="${roles}">
                         <c:choose>
-                           <c:when test="${role.id == user.role.id}">
-                               <option value="${role.id}" selected>${role.name}</option>
+                           <c:when test="${role.roleId == user.role.roleId}">
+                               <option value="${role.roleId}" selected>${role.roleName}</option>
                            </c:when>
                            <c:otherwise>
-                               <option value="${role.id}">${role.name}</option>
+                               <option value="${role.roleId}">${role.roleName}</option>
                            </c:otherwise>
                        </c:choose>
                     </c:forEach>

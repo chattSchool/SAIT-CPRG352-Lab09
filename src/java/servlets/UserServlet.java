@@ -1,7 +1,7 @@
 package servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -28,11 +28,11 @@ public class UserServlet extends HttpServlet {
         
         try {
            //Gets all users
-           ArrayList<User> users = us.getAll();
+           List<User> users = us.getAll();
            request.setAttribute("users", users);
          
            //Gets all role names
-           ArrayList<Role> roles = rs.getAll();
+           List<Role> roles = rs.getAll();
            request.setAttribute("roles", roles);
            
            if(action != null) {
